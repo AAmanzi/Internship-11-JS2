@@ -1,3 +1,9 @@
+.main__favourites-found{
+    text-align: center;
+    color: #878787;
+    margin-top: 25px;
+}
+
 .main__offers {
     width: 1225px;
     margin: auto;
@@ -29,7 +35,7 @@
     top: 297px !important;
 }
 
-.item__heart-full-hover{
+.item__heart-full-click{
     opacity: 1 !important;
 }
 
