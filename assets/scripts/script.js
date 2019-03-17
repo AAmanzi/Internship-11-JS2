@@ -101,7 +101,6 @@ offerItems.forEach(offerItem => {
     offerItem.addEventListener("mouseover", function() {
         let itemDescription = offerItem.querySelector(".item__img-description");
         itemDescription.classList.add("item__img-description-hover");
-        itemHeart.isTriggered = false;
     });
 
     offerItem.addEventListener("mouseout", function() {
@@ -111,7 +110,7 @@ offerItems.forEach(offerItem => {
     
     let itemHeart = offerItem.querySelector(".item__heart-full");
 
-    itemHeart.addEventListener("click", function() {
+    itemHeart.addEventListener("click", function(event) {
         itemHeart.classList.toggle("item__heart-full-click");
 
         if(itemHeart.classList.contains("item__heart-full-click")){
@@ -123,15 +122,11 @@ offerItems.forEach(offerItem => {
 
         mainFavourites.innerHTML = `Favourites: ${favourites}`;
 
-        itemHeart.isTriggered = true;
+        event.stopPropagation();
     });
 
 
     offerItem.addEventListener("click", function() {
-        if(itemHeart.isTriggered){
-            return null;
-        }
-
         let offerWindow = window.open("", "_blank");
         offerWindow.document.write(`<link rel="stylesheet" href="./assets/styles/main.css"/>
         <link rel="stylesheet" href="./assets/styles/common.css" />
